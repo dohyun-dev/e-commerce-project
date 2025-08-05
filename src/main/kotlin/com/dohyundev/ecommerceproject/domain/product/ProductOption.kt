@@ -11,7 +11,6 @@ class ProductOption(
     var name: String,
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "PRODUCT_OPTION_GROUP_ID")
-    var ProductOptionGroup: ProductOptionGroup? = null
+    var productOptionGroup: ProductOptionGroup? = null,
 ) : BaseEntity() {
-
 }
