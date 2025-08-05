@@ -12,19 +12,23 @@ import java.time.LocalDateTime
 abstract class BaseEntity {
     @Id
     @Tsid
-    var id: Long? = null
+    val id: Long? = null
 
     @CreatedDate
     @Column(updatable = false)
-    var createdAt: LocalDateTime? = null
+    lateinit var createdAt: LocalDateTime
+        protected set
 
     @LastModifiedDate
-    var modifiedAt: LocalDateTime? = null
+    lateinit var modifiedAt: LocalDateTime
+        protected set
 
     @CreatedBy
     @Column(updatable = false)
-    var createdBy: String? = null
+    var createdBy: Long? = null
+        protected set
 
     @LastModifiedBy
-    var modifiedBy: String? = null
+    var modifiedBy: Long? = null
+        protected set
 }
