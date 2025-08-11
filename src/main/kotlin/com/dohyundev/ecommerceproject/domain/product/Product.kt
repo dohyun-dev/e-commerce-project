@@ -1,15 +1,21 @@
 package com.dohyundev.ecommerceproject.domain.product
 
 import BaseEntity
-import jakarta.persistence.Entity
-import jakarta.persistence.FetchType
-import jakarta.persistence.JoinColumn
-import jakarta.persistence.ManyToOne
+import com.dohyundev.ecommerceproject.domain.shop.Shop
+import jakarta.persistence.*
 import java.math.BigDecimal
 
 @Entity
 class Product(
     var name: String,
-    var price: BigDecimal
+
+    var price: BigDecimal,
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(
+        name = "product_id",
+        foreignKey = ForeignKey(ConstraintMode.NO_CONSTRAINT)
+    )
+    var shop: Shop? = null,
 ) : BaseEntity() {
 }

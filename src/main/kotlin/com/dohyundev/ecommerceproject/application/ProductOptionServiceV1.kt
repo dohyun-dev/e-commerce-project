@@ -10,9 +10,15 @@ class ProductOptionServiceV1(
     private val productOptionGroupRepository: ProductOptionGroupRepository
 ) {
     @Transactional
-    fun create(productOptionId: Long, name: String) {
-        val productOptionGroup = productOptionGroupRepository.findEntity(productOptionId)
+    fun create(
+        productOptionGroupId: Long,
+        name: String
+    ) : Long? {
+        val productOptionGroup = productOptionGroupRepository.findById(productOptionGroupId)
+            .orElseThrow { ProductOptionGroupNotFoundException() }
+
         val newProductOptionGroup = ProductOption(name = name, productOptionGroup = productOptionGroup)
-        productOptionRepository.save(newProductOptionGroup)
+
+        return productOptionRepository.save(newProductOptionGroup).id
     }
 }

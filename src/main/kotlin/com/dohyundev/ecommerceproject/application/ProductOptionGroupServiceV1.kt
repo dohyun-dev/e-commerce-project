@@ -1,5 +1,6 @@
 package com.dohyundev.ecommerceproject.application
 
+import com.dohyundev.ecommerceproject.domain.product.ProductNotFoundException
 import com.dohyundev.ecommerceproject.domain.product.ProductOptionGroup
 import com.dohyundev.ecommerceproject.domain.product.ProductOptionGroupRepository
 import com.dohyundev.ecommerceproject.domain.product.ProductRepository
@@ -12,10 +13,12 @@ class ProductOptionGroupServiceV1(
     private val productRepository: ProductRepository
 ) {
     @Transactional
-    fun create(productId: Long, name: String) {
-        val product = productRepository.findEntity(productId)
+    fun create(productId: Long, name: String): Long? {
+        val product = productRepository.findById(productId)
+            .orElseThrow { ProductNotFoundException() }
         val newProductOptionGroup = ProductOptionGroup(name = name, product = product)
-        productOptionGroupRepository.save(newProductOptionGroup)
+
+        return productOptionGroupRepository.save(newProductOptionGroup).id
     }
 
 
