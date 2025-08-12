@@ -18,4 +18,9 @@ class Product(
     )
     var shop: Shop? = null,
 ) : BaseEntity() {
+    @OneToMany(mappedBy = "product", cascade = [CascadeType.ALL], orphanRemoval = true)
+    val optionGroups: MutableList<ProductOptionGroup> = mutableListOf()
+
+    @OneToMany(mappedBy = "product", cascade = [CascadeType.ALL], orphanRemoval = true)
+    val variants: MutableList<ProductVariant> = mutableListOf()
 }

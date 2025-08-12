@@ -8,9 +8,12 @@ import jakarta.persistence.ManyToOne
 
 @Entity
 class ProductOptionGroup(
-    var name: String,
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id")
-    var product: Product? = null
+    var product: Product? = null,
+
+    var name: String,
+
+    var priority: Int = 0,
 ) : BaseEntity() {
 }

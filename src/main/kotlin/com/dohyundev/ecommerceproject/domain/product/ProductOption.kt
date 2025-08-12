@@ -1,16 +1,17 @@
 package com.dohyundev.ecommerceproject.domain.product
 
 import BaseEntity
-import jakarta.persistence.Entity
-import jakarta.persistence.FetchType
-import jakarta.persistence.JoinColumn
-import jakarta.persistence.ManyToOne
+import jakarta.persistence.*
 
 @Entity
 class ProductOption(
-    var name: String,
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "PRODUCT_OPTION_GROUP_ID")
     var productOptionGroup: ProductOptionGroup? = null,
+
+    var name: String,
+
+    @Column(nullable = false)
+    var priority: Int = 0,
 ) : BaseEntity() {
 }
