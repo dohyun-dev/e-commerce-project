@@ -18,7 +18,7 @@ class ProductOptionGroupServiceV1(
             .orElseThrow { ProductNotFoundException() }
         val newProductOptionGroup = ProductOptionGroup(name = name, product = product)
 
-        return productOptionGroupRepository.save(newProductOptionGroup).id
+        return productOptionGroupRepository.save(newProductOptionGroup).id!!
     }
 
 

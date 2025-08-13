@@ -24,6 +24,6 @@ class ProductServiceV1(
             shop = shop
         )
 
-        return productRepository.save(newProduct).id
+        return productRepository.save(newProduct).id!!
     }
 }

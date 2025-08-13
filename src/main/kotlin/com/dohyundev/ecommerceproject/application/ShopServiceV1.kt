@@ -12,6 +12,6 @@ class ShopServiceV1(
     @Transactional
     fun create(name: String): Long? {
         val newShop = Shop(name = name)
-        return shopRepository.save(newShop).id
+        return shopRepository.save(newShop).id!!
     }
 }

@@ -22,6 +22,6 @@ class ProductOptionServiceV1(
 
         val newProductOptionGroup = ProductOption(name = name, productOptionGroup = productOptionGroup)
 
-        return productOptionRepository.save(newProductOptionGroup).id
+        return productOptionRepository.save(newProductOptionGroup).id!!
     }
 }
