@@ -1,6 +1,7 @@
-package com.dohyundev.ecommerceproject.domain.product
+package com.dohyundev.ecommerceproject.domain.product.variant
 
 import BaseEntity
+import com.dohyundev.ecommerceproject.domain.product.option.ProductOption
 import jakarta.persistence.*
 
 @Entity
@@ -9,7 +10,7 @@ import jakarta.persistence.*
         UniqueConstraint(name = "uk_variant_option_condition", columnNames = ["product_variant_id", "product_option_id"])
     ]
 )
-class ProductVariantOptionCondition(
+class ProductVariantCondition(
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_variant_id")
     var variant: ProductVariant? = null,
@@ -20,7 +21,7 @@ class ProductVariantOptionCondition(
 ) : BaseEntity() {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ProductVariantOptionCondition) return false
+        if (other !is ProductVariantCondition) return false
 
         if (variant != other.variant) return false
         if (option != other.option) return false

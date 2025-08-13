@@ -1,6 +1,8 @@
-package com.dohyundev.ecommerceproject.domain.product
+package com.dohyundev.ecommerceproject.domain.product.variant
 
 import BaseEntity
+import com.dohyundev.ecommerceproject.domain.product.Product
+import com.dohyundev.ecommerceproject.domain.product.option.ProductOption
 import jakarta.persistence.*
 
 @Entity
@@ -12,7 +14,7 @@ class ProductVariant(
     val sku: String
 ) : BaseEntity() {
     @OneToMany(mappedBy = "productVariant", cascade = [(CascadeType.ALL)], orphanRemoval = true)
-    val conditions: MutableSet<ProductVariantOptionCondition> = mutableSetOf()
+    val conditions: MutableSet<ProductVariantCondition> = mutableSetOf()
 
     companion object {
         fun create(product: Product, sku: String, options: List<ProductOption>): ProductVariant {
@@ -21,7 +23,7 @@ class ProductVariant(
                 sku = sku
             ).apply {
                 val conditions = options.map {
-                    ProductVariantOptionCondition(
+                    ProductVariantCondition(
                         variant = this,
                         option = it
                     )

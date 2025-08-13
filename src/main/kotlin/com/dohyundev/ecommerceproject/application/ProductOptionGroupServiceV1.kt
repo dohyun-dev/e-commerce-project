@@ -1,8 +1,8 @@
 package com.dohyundev.ecommerceproject.application
 
 import com.dohyundev.ecommerceproject.domain.product.ProductNotFoundException
-import com.dohyundev.ecommerceproject.domain.product.ProductOptionGroup
-import com.dohyundev.ecommerceproject.domain.product.ProductOptionGroupRepository
+import com.dohyundev.ecommerceproject.domain.product.option_group.ProductOptionGroup
+import com.dohyundev.ecommerceproject.domain.product.option_group.ProductOptionGroupRepository
 import com.dohyundev.ecommerceproject.domain.product.ProductRepository
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional

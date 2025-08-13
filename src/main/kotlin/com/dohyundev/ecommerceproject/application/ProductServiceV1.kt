@@ -2,9 +2,8 @@ package com.dohyundev.ecommerceproject.application
 
 import com.dohyundev.ecommerceproject.domain.product.Product
 import com.dohyundev.ecommerceproject.domain.product.ProductRepository
+import com.dohyundev.ecommerceproject.domain.shop.ShopNotFoundException
 import com.dohyundev.ecommerceproject.domain.shop.ShopRepository
-import jakarta.persistence.EntityNotFoundException
-import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import java.math.BigDecimal
@@ -17,7 +16,7 @@ class ProductServiceV1(
     @Transactional
     fun create(shopId: Long, name: String, price: Long): Long? {
         val shop = shopRepository.findById(shopId)
-            .orElseThrow { EntityNotFoundException() }
+            .orElseThrow { ShopNotFoundException() }
 
         val newProduct = Product(
             name = name,

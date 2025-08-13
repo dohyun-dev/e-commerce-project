@@ -6,6 +6,6 @@ class ShopNotFoundException(
     constructor() : this(DEFAULT_MESSAGE)
 
     companion object {
-        private const val DEFAULT_MESSAGE = "상점정보가 존재하지 않습니다.";
+        private const val DEFAULT_MESSAGE = "상점 정보가 존재하지 않습니다.";
     }
 }

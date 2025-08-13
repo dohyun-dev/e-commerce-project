@@ -1,9 +1,9 @@
 package com.dohyundev.ecommerceproject.presentation.api.dto
 
-interface ProductOptionGroupRequest {
+interface ProductVariantRequest {
     data class Create(
-        val shopId: String,
-        val name: String
+        val sku: String,
+        val optionIds: List<Long>,
     ) {
 
     }

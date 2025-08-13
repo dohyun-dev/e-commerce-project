@@ -1,6 +1,7 @@
-package com.dohyundev.ecommerceproject.domain.product
+package com.dohyundev.ecommerceproject.domain.product.option
 
 import BaseEntity
+import com.dohyundev.ecommerceproject.domain.product.option_group.ProductOptionGroup
 import jakarta.persistence.*
 
 @Entity

@@ -1,6 +1,7 @@
-package com.dohyundev.ecommerceproject.domain.product
+package com.dohyundev.ecommerceproject.domain.product.option_group
 
 import BaseEntity
+import com.dohyundev.ecommerceproject.domain.product.Product
 import jakarta.persistence.Entity
 import jakarta.persistence.FetchType
 import jakarta.persistence.JoinColumn

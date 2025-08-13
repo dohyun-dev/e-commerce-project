@@ -2,6 +2,9 @@ package com.dohyundev.ecommerceproject.application
 
 import com.dohyundev.ecommerceproject.common.exception.BusinessException
 import com.dohyundev.ecommerceproject.domain.product.*
+import com.dohyundev.ecommerceproject.domain.product.option.ProductOptionRepository
+import com.dohyundev.ecommerceproject.domain.product.variant.ProductVariant
+import com.dohyundev.ecommerceproject.domain.product.variant.ProductVariantRepository
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
@@ -15,14 +18,14 @@ class ProductVariantServiceV1(
     fun create(
         productId: Long,
         sku: String,
-        productOptionIds: List<Long>
+        optionIds: List<Long>
     ): Long {
         val product = productRepository.findById(productId)
             .orElseThrow { ProductNotFoundException() }
 
-        val productOptions = productOptionRepository.findAllById(productOptionIds)
+        val productOptions = productOptionRepository.findAllById(optionIds)
 
-        if (productOptionIds.size != productOptions.size) {
+        if (optionIds.size != productOptions.size) {
             throw BusinessException("옵션 정보가 존재하지 않습니다.")
         }
 

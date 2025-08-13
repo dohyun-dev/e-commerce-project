@@ -1,4 +1,4 @@
-package com.dohyundev.ecommerceproject.domain.product
+package com.dohyundev.ecommerceproject.domain.product.option
 
 class ProductOptionNotFoundException(
     override val message: String?,

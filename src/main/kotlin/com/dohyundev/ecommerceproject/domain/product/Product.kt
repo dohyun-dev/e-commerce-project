@@ -1,6 +1,8 @@
 package com.dohyundev.ecommerceproject.domain.product
 
 import BaseEntity
+import com.dohyundev.ecommerceproject.domain.product.option_group.ProductOptionGroup
+import com.dohyundev.ecommerceproject.domain.product.variant.ProductVariant
 import com.dohyundev.ecommerceproject.domain.shop.Shop
 import jakarta.persistence.*
 import java.math.BigDecimal

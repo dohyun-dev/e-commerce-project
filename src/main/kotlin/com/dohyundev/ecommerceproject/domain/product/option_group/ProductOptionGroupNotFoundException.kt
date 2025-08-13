@@ -1,4 +1,4 @@
-package com.dohyundev.ecommerceproject.domain.product
+package com.dohyundev.ecommerceproject.domain.product.option_group
 
 class ProductOptionGroupNotFoundException(
     override val message: String?,
