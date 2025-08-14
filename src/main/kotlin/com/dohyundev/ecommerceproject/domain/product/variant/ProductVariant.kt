@@ -13,7 +13,7 @@ class ProductVariant(
 
     val sku: String
 ) : BaseEntity() {
-    @OneToMany(mappedBy = "productVariant", cascade = [(CascadeType.ALL)], orphanRemoval = true)
+    @OneToMany(mappedBy = "variant", cascade = [(CascadeType.ALL)], orphanRemoval = true)
     val conditions: MutableSet<ProductVariantCondition> = mutableSetOf()
 
     companion object {
