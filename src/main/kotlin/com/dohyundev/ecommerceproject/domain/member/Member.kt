@@ -8,6 +8,7 @@ class Member(
     var username: String,
 
     @Embedded
+    @AttributeOverride(name = "value", column = Column(name = "password"))
     var password: Password,
 
     var name: String? = null,
