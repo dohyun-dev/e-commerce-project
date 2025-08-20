@@ -11,9 +11,14 @@ export const adminSidebarData: AdminSidebarData = {
       title: "상점관리",
       items: [
         {
-          title: "상점 목록",
-          url: "/admin/shops",
+          title: "상점관리",
           icon: StoreIcon,
+          items: [
+            {
+              title: "상점 목록",
+              url: "/admin/shops/list",
+            },
+          ],
         },
       ],
     },
