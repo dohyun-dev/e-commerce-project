@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import MainLayout from "@/layouts/MainLayout.tsx";
+import MainLayout from "@/components/layout/main/MainLayout.tsx";
 import HomePage from "@/pages/Home.tsx";
-import AdminLayout from "@/layouts/AdminLayout.tsx";
+import { AdminLayout } from "@/pages/admin/(authenticated)/AdminLayout.tsx";
 import AdminPage from "@/pages/admin/Admin.tsx";
 import { AdminSignInPage } from "@/pages/admin/(auth)/sign-in";
 
