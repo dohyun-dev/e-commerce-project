@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { cn } from "@/lib/utils.ts";
 import { Button } from "@/components/ui/button.tsx";
@@ -12,12 +11,19 @@ import {
 } from "@/components/ui/form.tsx";
 import { Input } from "@/components/ui/input.tsx";
 import { PasswordInput } from "@/components/ui/password-input.tsx";
+import {
+  LoginRequest,
+  useAdminLoginMutation,
+} from "@/services/admin/auth/AdminLoginMutation.ts";
+import { useNavigate } from "react-router-dom";
 
 export function AdminSignInForm({
   className,
   ...props
 }: React.HTMLAttributes<HTMLFormElement>) {
-  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const adminLoginMutation = useAdminLoginMutation();
 
   const form = useForm({
     defaultValues: {
@@ -27,12 +33,11 @@ export function AdminSignInForm({
   });
 
   function onSubmit(data: object) {
-    setIsLoading(true);
-    console.log(data);
-
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
+    return adminLoginMutation.mutate(data as LoginRequest, {
+      onSuccess: () => {
+        navigate("/admin");
+      },
+    });
   }
 
   return (
@@ -69,7 +74,7 @@ export function AdminSignInForm({
             </FormItem>
           )}
         />
-        <Button className="mt-2" disabled={isLoading}>
+        <Button className="mt-2" disabled={adminLoginMutation.isPending}>
           로그인
         </Button>
       </form>
