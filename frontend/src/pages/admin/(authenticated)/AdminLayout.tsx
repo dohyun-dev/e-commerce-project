@@ -13,6 +13,9 @@ import { AdminNavGroup } from "@/components/layout/admin/AdminNavGroup.tsx";
 import { AdminLayoutProvider } from "@/contexts/AdminLayoutProvider.tsx";
 import { AdminSidebar } from "@/components/layout/admin/AdminSidebar.tsx";
 import { adminSidebarData } from "@/components/layout/admin/data/AdminSideBarData.ts";
+import { ThemeSwitch } from "@/components/ThemeSwitch.tsx";
+import { AdminHeader } from "@/components/layout/admin/AdminHeader.tsx";
+import { ProfileDropdown } from "@/components/layout/admin/ProfileDropDown.tsx";
 
 type AuthenticatedLayoutProps = {
   children?: React.ReactNode;
@@ -40,6 +43,12 @@ export function AdminLayout({ children }: AuthenticatedLayoutProps) {
             "@container/content",
           )}
         >
+          <AdminHeader>
+            <div className="ms-auto flex items-center space-x-4">
+              <ThemeSwitch />
+              <ProfileDropdown />
+            </div>
+          </AdminHeader>
           {children ?? <Outlet />}
         </SidebarInset>
       </AdminLayoutProvider>

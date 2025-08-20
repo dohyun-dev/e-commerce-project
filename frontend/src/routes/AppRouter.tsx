@@ -4,6 +4,7 @@ import HomePage from "@/pages/Home.tsx";
 import { AdminLayout } from "@/pages/admin/(authenticated)/AdminLayout.tsx";
 import AdminPage from "@/pages/admin/Admin.tsx";
 import { AdminSignInPage } from "@/pages/admin/(auth)/sign-in";
+import { ShopApplicationEntries } from "@/pages/admin/(authenticated)/shop-application-entries/ShopApplicationEntries.tsx";
 
 export default function AppRouter() {
   return (
@@ -16,6 +17,10 @@ export default function AppRouter() {
           <Route path="sign-in" element={<AdminSignInPage />} />
           <Route element={<AdminLayout />}>
             <Route index element={<AdminPage />} />
+            <Route
+              path="shop-application-entries"
+              element={<ShopApplicationEntries />}
+            />
           </Route>
         </Route>
       </Routes>

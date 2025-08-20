@@ -15,6 +15,10 @@ export const adminSidebarData: AdminSidebarData = {
           icon: StoreIcon,
           items: [
             {
+              title: "입점 신청 목록",
+              url: "/admin/shop-apply-entries/list",
+            },
+            {
               title: "상점 목록",
               url: "/admin/shops/list",
             },
